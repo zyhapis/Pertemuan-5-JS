@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+    <title>Ganjil Genap</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        h1, p, #result {
+            color: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        #numberInput {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Press Start 2P', cursive;
+            margin: 5px;
+            display: block;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <h1>Angka Genap dan Ganjil</h1>
+        <p>Masukkan angka untuk memeriksa apakah itu genap atau ganjil</p>
+        <div class="button-container">
+            <input id="numberInput">
+            <button onclick="checkEvenOrOdd()">Periksa</button>
+        </div>
+        <p id="result"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        function checkEvenOrOdd() {
+            let number = document.getElementById("numberInput").value;
+            let result = document.getElementById("result");
+
+            if (number === "") {
+                result.innerHTML = 'Silakan masukkan angka.';
+            } else if (number % 2 === 0) {
+                result.innerHTML = 'Angka ' + number + ' adalah genap.';
+            } else {
+                result.innerHTML = 'Angka ' + number + ' adalah ganjil.';
+            }
+        }
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 200, density: { enable: true, value_area: 800 } },
+                color: { value: "#fff" },
+                shape: {
+                    type: "circle",
+                    stroke: { width: 0, color: "#fff" },
+                },
+                opacity: { value: 0.5, random: true, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: "#fff", opacity: 0.4, width: 1 },
+                move: {
+                    enable: true,
+                    speed: 0.5,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
